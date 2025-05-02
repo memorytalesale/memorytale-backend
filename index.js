@@ -40,11 +40,12 @@ app.post('/contacto', async (req, res) => {
   }
 });
 
-// Ruta GET raíz para prueba simple
+// Ruta GET raíz (simple respuesta de prueba)
 app.get('/', (req, res) => {
-  res.send('MemoryTale backend funcionando 🚀');
+  res.send('✅ MemoryTale backend funcionando correctamente 🚀');
 });
 
 app.listen(PORT, () => {
-  console.log(`Servidor escuchando en http://localhost:${PORT}`);
+  console.log(`Servidor escuchando en puerto ${PORT}`);
 });
+
