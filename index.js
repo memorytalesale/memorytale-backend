@@ -3,15 +3,13 @@ require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
-const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000; // importante para Render
 
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../public')));
 
 // Ruta POST para recibir el formulario
 app.post('/contacto', async (req, res) => {
@@ -42,9 +40,9 @@ app.post('/contacto', async (req, res) => {
   }
 });
 
-// Ruta GET raíz para devolver index.html (opcional, pero asegura que / funcione)
+// Ruta GET raíz para prueba simple
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/index.html'));
+  res.send('MemoryTale backend funcionando 🚀');
 });
 
 app.listen(PORT, () => {
